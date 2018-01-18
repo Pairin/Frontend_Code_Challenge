@@ -26,6 +26,14 @@
             "required": false,
             "type": "number",
             "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Select what page to show for pagination",
+            "required": false,
+            "type": "number",
+            "format": "int32"
           }
         ],
         "tags": [
