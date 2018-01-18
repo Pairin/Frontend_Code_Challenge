@@ -1,0 +1,238 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PAIRIN Api",
+    "description": "The PAIRIN Inform Api",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/api",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "User List",
+        "description": "Get a list of users\n",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit the users in the response (Defaults to 20)",
+            "required": false,
+            "type": "number",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of users",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "pages": {
+                      "type": "integer",
+                      "description": "How many pages of users there are",
+                      "format": "int32"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "What page you are currently viewing",
+                      "format": "int32"
+                    },
+                    "count": {
+                      "type": "integer",
+                      "description": "How many users there are",
+                      "format": "int32"
+                    }
+                  }
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "summary": "Get Specific User",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the user to fetch",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "a specific User",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/user_info/{id}": {
+      "get": {
+        "summary": "Get Specific User Info",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the user to fetch",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "a specific UserInfo",
+            "schema": {
+              "$ref": "#/definitions/UserInfo"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Unique identifier representing a specific user."
+        },
+        "full_name": {
+          "type": "string",
+          "description": "User's Full name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User's Email Address"
+        },
+        "survey_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of the survey"
+        }
+      }
+    },
+    "UserInfo": {
+      "type": "object",
+      "properties": {
+        "qualities": {
+          "type": "object",
+          "properties": {
+            "driver": {
+              "$ref": "#definitions/Quality"
+            },
+            "general": {
+              "$ref": "#definitions/Quality"
+            },
+            "social": {
+              "$ref": "#definitions/Quality"
+            },
+            "virtue": {
+              "$ref": "#definitions/Quality"
+            }
+          }
+        }
+      }
+    },
+    "Quality": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Score"
+          }
+        }
+      }
+    },
+    "Score": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "real": {
+          "type": "integer"
+        },
+        "ideal": {
+          "type": "integer"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
