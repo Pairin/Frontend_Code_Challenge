@@ -40,8 +40,8 @@ Evaluation of candidates will be factored based on 3 main criteria:
   - How clean your code is
   - How modular/portable it is
   - How well you know and utilize React functionality
-- Fundementals
-  - How well your CS Fundementals are
+- Fundamentals
+  - How well your CS Fundamentals are
     - Sorting
     - Filtering
   - How well you handle errors and unexpected faults
