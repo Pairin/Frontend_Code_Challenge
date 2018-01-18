@@ -52,7 +52,7 @@ This project is meant to evaluate your ability to take fairly vague requirements
 Timeliness is also a huge factor. While there is no timeline, we are evaluating candidates on a rolling basis and how long you take to complete the challenge will factor into everything.
 
 # Submission
-Upon completion zip the directory (minus the node_modules folder) and email it to [smakinson@pairin.com](mailto:smakinson@pairin.com)
+Upon completion zip the directory (minus the node_modules folder) and email it to [smakinson@pairin.com](mailto:smakinson@pairin.com?Subject=Frontend%20Code%20Challenge)
 
 # Installation
 Install npm dependencies
