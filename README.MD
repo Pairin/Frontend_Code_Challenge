@@ -31,7 +31,28 @@ The information page should contain the following features:
   - Change selected Quality
 
 # Evaluation
-This project is meant to evaluate your ability to take fairly vague requirements and implement them. We are looking at how well you can handle advanced CSS implementation, how clean your code is, how well you can handle basic computer science topics; such as sorting and filtering of data, and how well you integrate into backend services (including handling random errors). You are not required to implement everything in the design, but features completed will be a factor when comparing candidates.
+Evaluation of candidates will be factored based on 3 main criteria:
+
+- CSS
+  - How well you implement your CSS
+  - How advanced your CSS techniques are
+- Code
+  - How clean your code is
+  - How modular/portable it is
+  - How well you know and utilize React functionality
+- Fundementals
+  - How well your CS Fundementals are
+    - Sorting
+    - Filtering
+  - How well you handle errors and unexpected faults
+  - How well you can take unfamiliar data and understand it.
+
+This project is meant to evaluate your ability to take fairly vague requirements and implement them. You are not required to implement everything in the design, but features completed will be a factor when comparing candidates.
+
+Timeliness is also a huge factor. While there is no timeline, we are evaluating candidates on a rolling basis and how long you take to complete the challenge will factor into everything.
+
+# Submission
+Upon completion zip the directory (minus the node_modules folder) and email it to [smakinson@pairin.com](mailto:smakinson@pairin.com)
 
 # Installation
 Install npm dependencies
