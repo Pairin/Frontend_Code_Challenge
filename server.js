@@ -13,6 +13,16 @@ App.use('/swagger/dist', Express.static(swaggerUiAssetPath));
 //API
 const ApiRouter = Express.Router({mergeParams: true});
 
+ApiRouter.use(async (req, res, next) => {
+  //Randomly send a 500 error
+
+  if (Math.random() < 0.005) {
+    return res.status(500).send("Unknown Error")
+  }
+
+  next();
+})
+
 //
 // Get All users
 //
@@ -61,7 +71,6 @@ ApiRouter.route('/user_info/:id(\\d+)/')
     const user_info = require('./src/server/data/user_info.json');
     const user = user_info.find(u=>Number(u.user_id)===Number(req.params.id));
 
-    console.log(user_info);
 
     if (!user) {
       return res.status(404).send({
