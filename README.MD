@@ -61,7 +61,10 @@ This project is meant to evaluate your ability to take fairly vague requirements
 Timeliness is also a huge factor. While there is no maximum time, we are evaluating candidates on a rolling basis so if you take too long, we may accept another candidate before we can evaluate you.
 
 # Submission
-Upon completion zip the directory (minus the node_modules folder) and email it to [smakinson@pairin.com](mailto:smakinson@pairin.com?Subject=Frontend%20Code%20Challenge)
+Upon completion zip the directory (minus the node_modules folder) and email it to [dev@pairin.com](mailto:dev@pairin.com?Subject=Frontend%20Code%20Challenge)
+
+# Found a bug?
+Congratulations! Finding a bug is a great way to earn some bonus points. Please feel free to create a pull request with the bug fix, or email me about it. Any bug fixes will be included in your evaluation.
 
 # Installation
 Install npm dependencies
