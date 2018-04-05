@@ -1,11 +1,20 @@
 # Requirements
 Using the included api server (see [Installation](#installation)) create a single page application with React. The single page application will be made up of 2 different pages: The first page will be a page that lists all the users in a paginated list. The second page will be a page that displays the user info for the selected user.
 
-The designs for the two pages can be found [Here](./Designs/Inform.png) and [Here](./Designs/UserList.png)
+The designs for the pages can be found [Here](./Designs)
 
 Information about what api requests are available can be found in the [Swagger](#swagger) documentation
+## Signin
+
+[Design](./Designs/Signin.png)
+
+The signin page should authenticate the user and set the x-api-key header for all future requests
+
+## 404 Page
+[Design](./Designs/404.png)
 
 ## User List
+
 [Design](./Designs/UserList.png)
 
 The user list should contain the following features:
@@ -49,7 +58,7 @@ Evaluation of candidates will be factored based on 3 main criteria:
 
 This project is meant to evaluate your ability to take fairly vague requirements and implement them. You are not required to implement everything in the design, but features completed will be a factor when comparing candidates.
 
-Timeliness is also a huge factor. While there is no timeline, we are evaluating candidates on a rolling basis and how long you take to complete the challenge will factor into everything.
+Timeliness is also a huge factor. While there is no maximum time, we are evaluating candidates on a rolling basis so if you take too long, we may accept another candidate before we can evaluate you.
 
 # Submission
 Upon completion zip the directory (minus the node_modules folder) and email it to [smakinson@pairin.com](mailto:smakinson@pairin.com?Subject=Frontend%20Code%20Challenge)
@@ -57,7 +66,7 @@ Upon completion zip the directory (minus the node_modules folder) and email it t
 # Installation
 Install npm dependencies
 ```bash
-npm install
+npm install //yarn install
 ```
 
 ### (optional)
@@ -69,8 +78,8 @@ export SERVER_PORT=3000;
 # Running the API Server
 Start the server
 ```bash
-npm run server
+npm run server //yarn run server
 ```
 
-# Swagger
+# Swagger Api Documentation
 Swagger docs can be located at `http://localhost:{SERVER_PORT}/swagger`
