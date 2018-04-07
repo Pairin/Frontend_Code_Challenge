@@ -157,7 +157,7 @@ ApiRouter.route('/users')
         count: users.length,
         limit: limit
       },
-      data: users.slice(page*limit,(page*limit) + limit)
+      data: users.slice(Number(page*limit), Number(page*limit) + Number(limit))
     });
   })
   .all((req,res)=>res.status(405).send("405 Method Not Allowed"));
