@@ -11,6 +11,21 @@ const crypto = require('crypto');
 const CIPHER_ALGORITHM='aes-256-ctr';
 const PRIVATE_KEY='6N84Hn8VT7coVo0K9xzWJqfoHz8u1osPOCG8FAIP';
 
+App.use((req, res, next) => {
+  const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+  const { origin } = req.headers;
+  if (allowedOrigins.indexOf(origin) > -1) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Api-Key');
+  res.header('Access-Control-Allow-Credentials', true);
+  if (req.method === 'OPTIONS') 
+  res.sendStatus(200);
+  else 
+    return next();
+});
+
 App.use(bodyParser.json());
 
 App.use('/', Express.static(path.resolve('./public')))
@@ -37,7 +52,7 @@ const DeleteKey = (api_key) => {
 }
 
 const CheckApiKey = (api_key) => {
-  if (!allowed_keys.includes(api_key)) {
+  if (!allowed_keys.includes(api_key)) {    
     return false;
   }
 
@@ -80,7 +95,6 @@ AuthenticationRouter.route('/')
         renew_key: renew_key
       });
     }
-
     res.status(401).send("401 Unauthorized");
   })
   .delete(async (req, res) => {
