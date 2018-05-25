@@ -13,185 +13,7 @@
   "produces": [
     "application/json"
   ],
-  "securityDefinitions": {
-    "APIKeyHeader": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "x-api-key"
-    }
-  },
   "paths": {
-    "/authenticate": {
-      "post": {
-        "summary": "Authenticate Session",
-        "description": "Authenticate the current session\n",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "user",
-            "description": "The user to create.",
-            "schema": {
-              "type": "object",
-              "required": [
-                "username",
-                "password"
-              ],
-              "properties": {
-                "username": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ],
-        "tags": [
-          "Authentication"
-        ],
-        "responses": {
-          "200": {
-            "description": "User successfully authenticated",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string"
-                },
-                "api_key": {
-                  "type": "string"
-                },
-                "renew_key": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "summary": "Check Session",
-        "description": "Check the current session\n",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "tags": [
-          "Authentication"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "x-api-key",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "User successfully authenticated",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "User is not authenticated"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Session",
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "x-api-key",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            },
-            "required": true
-          }
-        ],
-        "description": "Delete the current session\n",
-        "tags": [
-          "Authentication"
-        ],
-        "responses": {
-          "200": {
-            "description": "Will always return Success",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/authenticate/renew": {
-      "post": {
-        "summary": "Renew the Session",
-        "description": "Renew the session with the renew_key\n",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "user",
-            "description": "The user to renew.",
-            "schema": {
-              "type": "object",
-              "required": [
-                "renew_key"
-              ],
-              "properties": {
-                "renew_key": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ],
-        "tags": [
-          "Authentication"
-        ],
-        "responses": {
-          "200": {
-            "description": "User successfully re-authenticated",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string"
-                },
-                "api_key": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "User is not authenticated"
-          }
-        }
-      }
-    },
     "/api/users": {
       "get": {
         "summary": "User List",
@@ -202,15 +24,6 @@
         ],
         "description": "Get a list of users\n",
         "parameters": [
-          {
-            "in": "header",
-            "name": "x-api-key",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            },
-            "required": true
-          },
           {
             "name": "limit",
             "in": "query",
@@ -285,15 +98,6 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "x-api-key",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            },
-            "required": true
-          },
-          {
             "name": "id",
             "in": "path",
             "description": "The id of the user to fetch",
@@ -329,15 +133,6 @@
           }
         ],
         "parameters": [
-          {
-            "in": "header",
-            "name": "x-api-key",
-            "schema": {
-              "type": "string",
-              "format": "string"
-            },
-            "required": true
-          },
           {
             "name": "id",
             "in": "path",

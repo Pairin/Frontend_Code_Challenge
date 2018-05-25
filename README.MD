@@ -4,27 +4,19 @@ Using the included api server (see [Installation](#installation)) create a singl
 The designs for the pages can be found [Here](./Designs)
 
 Information about what api requests are available can be found in the [Swagger](#swagger) documentation
-## Signin
-
-[Design](./Designs/Signin.png)
-
-The signin page should authenticate the user and set the x-api-key header for all future requests
-
-## 404 Page
-[Design](./Designs/404.png)
 
 ## User List
 
-[Design](./Designs/UserList.png)
+[Design](./Designs/UserList.jpg)
 
 The user list should contain the following features:
 
 - A List of all users
 - The ability to sort users in the lists
-- Pagination for the users (Since there are 1000 in the system)
+- Pagination for the user list
 
 ## Information Page
-[Design](./Designs/Inform.png)
+[Design](./Designs/Inform.jpg)
 
 The information page should contain the following features:
 
@@ -33,9 +25,6 @@ The information page should contain the following features:
   - Driver, General Style, Social Emotional, and Virtue
 - A Chart showing the ranges for each Score with the Real and Ideal score values charted (ranging from -50 to 50)
 - Filters for the graph
-  - Enable / Disable scores to show
-  - Toggle whether to show valid or invalid results
-    - Valid, Invalid, All scores
   - Toggle Ideal scores
   - Change selected Quality
 
@@ -45,6 +34,7 @@ Evaluation of candidates will be factored based on 3 main criteria:
 - CSS
   - How well you implement your CSS
   - How advanced your CSS techniques are
+  - We are looking for pixel perfect implementation
 - Code
   - How clean your code is
   - How modular/portable it is
