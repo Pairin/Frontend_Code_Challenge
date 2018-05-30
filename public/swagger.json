@@ -39,6 +39,22 @@
             "required": false,
             "type": "number",
             "format": "int32"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort by a key",
+            "required": false,
+            "type": "string",
+            "enum": ["full_name","survey_date","email"]
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Sort order",
+            "required": false,
+            "type": "string",
+            "enum": ["asc","desc"]
           }
         ],
         "tags": [

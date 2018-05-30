@@ -36,15 +36,36 @@ ApiRouter.use(async (req, res, next) => {
   next();
 })
 
+
+const SORT_FUNCS = {
+  'survey_date': (a,b) => (
+    (new Date(a.survey_date)).getTime() - (new Date(b.survey_date)).getTime()
+  ),
+  'full_name': (a,b) => (
+    a.full_name.localeCompare(b.full_name)
+  ),
+  'email': (a,b) => (
+    a.full_name.localeCompare(b.full_name)
+  )
+}
+
 //
 // Get All users
 //
 ApiRouter.route('/users')
   .get(async (req, res) => {
-    const users = require('./src/server/data/users.json');
+    let users = require('./src/server/data/users.json');
 
     const limit = req.query.limit||20;
     const page = Math.min(Math.max((req.query.page||1) - 1, 0), Math.ceil(users.length / limit)-1);
+
+    if (req.query.sort && SORT_FUNCS[req.query.sort]) {
+      users = users.sort(SORT_FUNCS[req.query.sort]);
+    }
+
+    if (req.query.order && req.query.order.toLowerCase()==='desc') {
+      users = users.reverse();
+    }
 
     res.status(200).send({
       meta: {
@@ -83,7 +104,6 @@ ApiRouter.route('/users/:id(\\d+)/info')
   .get(async (req, res) => {
     const user_info = require('./src/server/data/user_info.json');
     const user = user_info.find(u=>Number(u.user_id)===Number(req.params.id));
-
 
     if (!user) {
       return res.status(404).send({
