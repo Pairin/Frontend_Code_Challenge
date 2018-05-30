@@ -5,6 +5,8 @@ The designs for the pages can be found [Here](./Designs)
 
 Information about what api requests are available can be found in the [Swagger](#swagger) documentation
 
+There is a basic Styleguide you can view [Here](./Designs/styleguide.md) for colors and fonts
+
 ## User List
 
 [Design](./Designs/UserList.jpg)
