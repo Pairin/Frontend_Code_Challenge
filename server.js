@@ -45,7 +45,7 @@ const SORT_FUNCS = {
     a.full_name.localeCompare(b.full_name)
   ),
   'email': (a,b) => (
-    a.full_name.localeCompare(b.full_name)
+    a.email.localeCompare(b.email)
   )
 }
 
